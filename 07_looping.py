@@ -1,3 +1,7 @@
+# RPS component 7 - Loop Game
+
+# to do
+# Loop entire game ...
 import random
 # Integer checking function below
 def intcheck(question,low=1,high=10):
@@ -38,6 +42,8 @@ def wordcheck (question):
                 print(error)
         except ValueError:
             print(error)
+
+# main routine
 keep_going = ""
 while keep_going == "":
     rounds = intcheck("How many rounds would you like to play with ? ", 1, 10)

@@ -1,4 +1,5 @@
 import random
+# statement generater
 def h1_statement(statement, char):
     print()
     print(char*len(statement))
@@ -6,7 +7,7 @@ def h1_statement(statement, char):
     print(char*len(statement))
     print
 # Integer checking function below
-def intcheck(question,low=1,high=10):
+def intcheck(question,low,high):
     valid = False
     error = ("Whoops! Please enter an integer ")
     while not valid:
@@ -22,14 +23,16 @@ def intcheck(question,low=1,high=10):
         except ValueError:
             print(error)
 
-
+# wordcheck function
 def wordcheck (question):
     valid = False
-    error = "please enter Rock(r), Paper(p) or Scissor(s)"
+    error = "Please enter Rock(r), Paper(p) or Scissor(s)"
 
     while not valid:
         try:
-            answer = input(question)
+            ans1 = input(question)
+            #To remove space from the user input
+            answer = ans1.replace(" ","")
             reply = answer.lower()
             if reply == "r" or reply=="rock":
                 r1 = "Rock"
@@ -44,16 +47,16 @@ def wordcheck (question):
                 print(error)
         except ValueError:
             print(error)
+# looping
 keep_going = ""
 while keep_going == "":
     rounds = intcheck("How many rounds would you like to play with ? ", 1, 10)
     rounds_played = 0
 
-    round_played=0
-    while round_played < rounds:
-        print("Round {}".format(rounds_played+1))
+    while rounds_played < rounds:
+        print("Round {} of {}".format(rounds_played+1,rounds))
         guess = ""
-        rounds_played += 1
+        #rounds_played += 1
 
         choice = wordcheck("Please enter Rock(r), Paper(p) or Scissor(s) ")
         choice = choice.lower()
@@ -92,7 +95,7 @@ while keep_going == "":
                 result = "You won"
             else:
                 print("Please enter correct choice.")
-        round_played +=1
+        rounds_played +=1
         print("Computer:",computer_choice, " | User: ", choice, " | Result: ", result )
         print()
     print()
